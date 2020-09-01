@@ -67,7 +67,6 @@ rutas.get('/', function (peticion, respuesta) {
         }
         
         conexion.query(consulta, function (error, filas, campos) {
-            console.log(consulta);
             respuesta.render('index', {publicaciones: filas, busqueda: buscar })
       })
       conexion.release()

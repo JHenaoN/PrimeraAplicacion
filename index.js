@@ -20,6 +20,6 @@ app.use(rutasMiddleware)
 app.use(rutasPrincipales)
 
   
-app.listen(8080,function(pet,res){
+app.listen(port,function(pet,res){
     console.log("Servidor Iniciado")
 })
