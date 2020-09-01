@@ -25,11 +25,19 @@ function enviarcorreo(email,nombre){
 
 var pool = mysql.createPool({
     connectionLimit :20,
-    host :          'localhost',
-    user :          'root',
-    password :      '12345',
-    database :      'blog_viajes'
+    host :          'fongracetales.com',
+    user :          'fongrace_jhenao',
+    password :      'Juhe@1596',
+    database :      'fongrace_db'
 })
+
+// var pool = mysql.createPool({
+//     connectionLimit :20,
+//     host :          'localhost',
+//     user :          'root',
+//     password :      '12345',
+//     database :      'blog_viajes'
+// })
 
 rutas.get('/', function (peticion, respuesta) {
     pool.getConnection(function(err, conexion) {
@@ -37,7 +45,7 @@ rutas.get('/', function (peticion, respuesta) {
        var consulta =""
        if (buscar !=""){
            consulta =`SELECT
-           publicaciones.d, titulo, resumen, fecha_hora, pseudonimo, votos
+           publicaciones.id, titulo, resumen, fecha_hora, pseudonimo, votos
            FROM publicaciones
            INNER JOIN autores
            ON publicaciones.autor_id = autores.id
@@ -57,7 +65,9 @@ rutas.get('/', function (peticion, respuesta) {
                 LIMIT 5
         `
         }
+        
         conexion.query(consulta, function (error, filas, campos) {
+            console.log(consulta);
             respuesta.render('index', {publicaciones: filas, busqueda: buscar })
       })
       conexion.release()

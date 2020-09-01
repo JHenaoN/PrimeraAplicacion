@@ -7,7 +7,7 @@ const flash = require('express-flash')
 const rutasMiddleware = require('./routes/middleware')
 const rutasPrincipales = require('./routes/principales')
 
-
+const port = process.env.PORT || 8080
 
 app.set('view engine','ejs')
 app.use(bodyParser.json())
