@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/estilos.css">
+    <link rel="stylesheet" href="/stylesheets/mini-default.min.css">
+</head>
+<body>
+    <%-include ('./partials/encabezado_privado')%>
+    <% if(mensaje.length > 0) {%>
+        <h4>
+            <span class='icon-info'></span>
+            <%=mensaje%>
+        </h4>
+    <% } %>   
+     <table>
+        <thead>
+            <tr>
+                <th>Titulo</th>
+                <th>Resumen</th>
+                <th>Votos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% publicaciones.map(publicacion =>{%>
+                <tr>
+                    <td>
+                        <%=publicacion.titulo%>
+                    </td>
+                    <td>
+                        <%=publicacion.resumen%>
+                    </td>
+                    <td>
+                        <%=publicacion.votos%>
+                    </td>
+                </tr>
+            <% }) %>    
+        </tbody>
+    </table>
+    <hr>
+    <a class="button" href='/admin/agregar-publicacion'>Agregar Publicacion</a>
+    <%-include ('./partials/pie')%> 
+</body>
+</html>

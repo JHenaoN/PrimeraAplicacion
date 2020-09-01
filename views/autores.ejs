@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/estilos.css">
+    <link rel="stylesheet" href="/stylesheets/mini-default.min.css">
+</head>
+<body>
+    <%-include ('./partials/encabezado.ejs')%>
+    <div class="container">
+        <img src="/images/fondo.jpg" width="100%">
+        <h4>Autores</h4>
+        <% autores.map(autor =>{ %>
+            <div class="col-sm-12">
+                <div class='card fluid'>
+                    <h3 class='section'>
+                        <%=autor.pseudonimo%>
+                    </h3>
+
+                </div>
+
+
+            </div>
+        
+        <%})%>
+    </div>
+    <%-include ('./partials/pie.ejs')%>
+</body>
+</html>

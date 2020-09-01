@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/estilos.css">
+    <link rel="stylesheet" href="/stylesheets/mini-default.min.css">
+    
+</head>
+<body>
+    <%- include ('./partials/encabezado')%>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <% if(mensaje.length > 0) {%>
+                    <h4>
+                        <span class='icon-info'></span>
+                        <%=mensaje%>
+                    </h4>
+            <%} %>
+                <form action='/procesar-registro' method="POST">
+                   <fieldset>
+                        <legend>Nuevo Autor</legend>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-4">
+                                <label for = 'email'>Email    </label>
+                                <input type='email' name='email' id='email'>
+                            </div>
+                            <div class="col-sm-12 col-md-4">
+                                <label for = 'contrasena'>Password</label>
+                                <input type='password' name='contrasena' id='contrasena'>
+                            </div>
+                            <div class="col-sm-12 col-md-4">
+                                <label for = 'pseudo'>Pseudonimo</label>
+                                <input type='text' name='pseudonimo' id='pseudo'>
+                            </div>
+                            <div class="col-sm-12">
+                                <input class = 'Primary' type='submit' value='Continuar'>
+                            </div>
+                        </div>    
+                   </fieldset> 
+                    
+                </form>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <%- include ('./partials/pie')%>
+</body>
+</html>

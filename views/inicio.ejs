@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/estilos.css">
+    <link rel="stylesheet" href="/stylesheets/mini-default.min.css">
+    
+</head>
+<body>
+    <%- include ('./partials/encabezado')%>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5">
+                <% if(mensaje.length > 0) {%>
+                    <h4>
+                        <span class='icon-info'></span>
+                        <%=mensaje%>
+                    </h4>
+            <%} %>
+                <h1>Inicio de sesion</h1>
+                <h4>Ingresa tus credenciales para ingresar</h4>
+                <form action='/procesar-inicio' method="POST">
+                   <fieldset>
+                        <legend>Datos para Entrar</legend>
+                        
+                            <div class="input-group vertical">
+                                <label for = 'email'>Email    </label>
+                                <input type='email' name='email' id='email'>
+                            </div>
+                            <div class="input-group vertical">
+                                <label for = 'contrasena'>Password</label>
+                                <input type='password' name='contrasena' id='contrasena'>
+                            </div>
+                            <div class="col-sm-12">
+                                <input class = 'Primary' type='submit' value='Continuar'>
+                            </div>
+                           
+                   </fieldset> 
+                    
+                </form>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <%- include ('./partials/pie')%>
+</body>
+</html>
